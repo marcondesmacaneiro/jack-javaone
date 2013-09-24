@@ -1,0 +1,6 @@
+/target
+/.vagrant
+rebel.xml
+/.classpath
+/.project
+/.settings

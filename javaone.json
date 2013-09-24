@@ -1,0 +1,35 @@
+{
+	"builders": [{
+    	"type": "amazon-ebs",
+    	"access_key": "AKIAJIDJPO47NUEVPSVQ",
+    	"secret_key": "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",
+    	"region": "us-east-1",
+    	"source_ami": "ami-de0d9eb7",
+    	"instance_type": "t1.micro",
+    	"ssh_username": "ubuntu",
+    	"ami_name": "javaone-demo {{timestamp}}"
+    }],
+	"provisioners" : [
+		{
+			"type": "chef-solo",
+			"cookbook_paths": ["cookbooks"],
+			"run_list": ["demo"]
+		},
+		{
+			"type": "file",
+			"source": "target/javaone.war",
+			"destination": "/home/ubuntu/javaone.war"
+		},
+		{
+			"type": "shell",
+			"inline": [
+				"sudo service tomcat7 stop",
+				"sleep 5",
+				"sudo rm -fR /var/lib/tomcat7/webapps/ROOT*",
+				"sudo cp javaone.war /var/lib/tomcat7/webapps/ROOT.war",
+				"sudo service tomcat7 start",
+				"sleep 5"
+			]
+		}
+	]
+}

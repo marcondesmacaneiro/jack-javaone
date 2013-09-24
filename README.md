@@ -1,4 +1,4 @@
-jack-qconsp
+jack-javaone
 ===========
 
-Demo da palestra do QConSP 2013
+JavaOne 2013 Demo of the session "Jack The Giant Slayer: A Cloud Computing Story"

@@ -6,6 +6,8 @@ execute "sudo echo oracle-java7-installer shared/accepted-oracle-license-v1-1 se
 package "oracle-java7-installer"
 package "oracle-java7-set-default"
 package "tomcat7"
+package "maven"
+package "git"
 cookbook_file "/etc/motd.tail" do
   action :create
 end
